@@ -1,6 +1,14 @@
 const express = require('express');
-const PORT = process.env.PORT || 5000;
+const fs = require('fs');
 
-express()
-  .get('/', (req, res) => res.end('Hello!'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+const PORT = process.env.PORT || 5000;
+const app = express();
+
+app.get('/api/social-networks', (req, res) => {
+  const content = fs.readFileSync('src/data/social-data.json', 'utf8');
+  const users = JSON.parse(content);
+
+  res.send(users);
+});
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
