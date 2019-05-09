@@ -1,7 +1,6 @@
-const http = require("http");
+const express = require('express');
+const PORT = process.env.PORT || 5000;
 
-http.createServer(function(request, response) {
-    response.end("Hello NodeJS!");
-}).listen(3000, "127.0.0.1", function() {
-    console.log("Сервер начал прослушивание запросов на порту 3000");
-});
+express()
+  .get('/', (req, res) => res.end('Hello!'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
