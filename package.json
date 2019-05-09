@@ -1,0 +1,10 @@
+{
+  "name": "sandbox-neo0910",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}
