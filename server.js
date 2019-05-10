@@ -8,6 +8,8 @@ app.get('/api/social-networks', (req, res) => {
   const content = fs.readFileSync('src/data/social-data.json', 'utf8');
   const users = JSON.parse(content);
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
   res.send(users);
 });
 
