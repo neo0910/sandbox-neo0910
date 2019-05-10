@@ -2,7 +2,7 @@
   "name": "sandbox-neo0910",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon server"
+    "start": "node server"
   },
   "private": true,
   "engines": {
@@ -11,7 +11,5 @@
   "dependencies": {
     "express": "^4.15.2"
   },
-  "devDependencies": {
-    "nodemon": "^1.19.0"
-  }
+  "devDependencies": {}
 }
