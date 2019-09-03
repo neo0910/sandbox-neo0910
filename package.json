@@ -2,8 +2,7 @@
   "name": "sandbox-neo0910",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon app",
-    "prod": "node app"
+    "dev": "nodemon app"
   },
   "private": true,
   "engines": {
