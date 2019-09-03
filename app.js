@@ -7,6 +7,20 @@ const db = require('./db');
 
 app.use(bodyParser.json());
 
+app.get('/api/todo', async (req, res) => {
+    await db.collection('inventory').insertOne({
+        item: 'canvas',
+        qty: 100,
+        tags: ['cotton'],
+        size: { h: 28, w: 35.5, uom: 'cm' }
+    });
+
+    db.collection('inventory').findOne({item: 'canvas'}, function(err, user) {
+        if (err) return console.log(err);
+        res.send(user);
+    });
+});
+
 app.get('/api/social-networks', (req, res) => {
     const users = 'users';
 
