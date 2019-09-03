@@ -7,18 +7,15 @@ const db = require('./db');
 
 app.use(bodyParser.json());
 
-app.get('/api/todo', async (req, res) => {
-    await db.collection('inventory').insertOne({
-        item: 'canvas',
-        qty: 100,
-        tags: ['cotton'],
-        size: { h: 28, w: 35.5, uom: 'cm' }
+app.get('/api/todo/:text', async (req, res) => {
+    await db.collection('todos').insertOne({
+        type: 'todo',
+        text: req.params.text,
     });
 
-    db.collection('inventory').findOne({item: 'canvas'}, function(err, user) {
+    db.collection('todos').findOne({ text: req.params.text }, (err, todo) => {
         if (err) return console.log(err);
-        const answer = { ...user, port: process.env.PORT, dbConnection: process.env.MONGODB_URI };
-        res.send(answer);
+        res.json(todo);
     });
 });
 
