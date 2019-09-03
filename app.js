@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -7,7 +8,7 @@ const db = require('./db');
 app.use(bodyParser.json());
 
 app.get('/api/social-networks', (req, res) => {
-  const users = 'users';
+    const users = 'users';
 
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
