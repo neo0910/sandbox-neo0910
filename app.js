@@ -17,7 +17,8 @@ app.get('/api/todo', async (req, res) => {
 
     db.collection('inventory').findOne({item: 'canvas'}, function(err, user) {
         if (err) return console.log(err);
-        res.send(user);
+        const answer = { ...user, port: process.env.PORT, dbConnection: process.env.MONGODB_URI };
+        res.send(answer);
     });
 });
 
