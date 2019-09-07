@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV === 'development') {
-    require('dotenv').config();
-}
+console.log(process.env.MONGODB_URI);
 
 const express = require('express');
 const bodyParser = require('body-parser');

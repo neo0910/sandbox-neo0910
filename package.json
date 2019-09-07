@@ -2,7 +2,7 @@
   "name": "sandbox-neo0910",
   "version": "1.0.0",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon app"
+    "dev": "nodemon --exec 'node -r dotenv/config' app"
   },
   "private": true,
   "engines": {
