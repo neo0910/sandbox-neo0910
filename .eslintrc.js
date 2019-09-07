@@ -17,6 +17,7 @@ module.exports = {
         'linebreak-style': [2, 'unix'],
         'quotes': [2, 'single'],
         'semi': [2, 'always'],
+        'no-var': 2,
         'no-unused-vars': [1, { 'vars': 'all', 'args': 'after-used', 'ignoreRestSiblings': false }],
     }
 };
