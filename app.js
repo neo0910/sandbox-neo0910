@@ -51,9 +51,9 @@ app.put('/api/todos/:id', jsonParser, (req, res) => {
         .catch(err => console.log(err));
 });
 
-app.get('/api/social-networks', (req, res) => {
-    
-});
+// app.get('/api/social-networks', (req, res) => {
+
+// });
 
 runConnection().catch(error => console.error(error.stack));
 process.on('SIGINT', () => process.exit());
