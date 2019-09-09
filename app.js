@@ -1,5 +1,28 @@
 const PORT = process.env.PORT || 5000;
 
+const fs = require('fs');
+const path = require('path');
+const AWS = require('aws-sdk');
+AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+});
+
+const s3 = new AWS.S3();
+const bucket = process.env.S3_BUCKET_NAME;
+const filePath = './mock-data/ellen-ripley.jpg';
+
+const params = {
+    Bucket: bucket,
+    Body : fs.createReadStream(filePath),
+    Key : `${Date.now()}_${path.basename(filePath)}`
+};
+
+// s3.upload(params, (err, data) => {
+//     if (err) console.log('Error', err);
+//     if (data) console.log('Uploaded in:', data.Location);
+// });
+
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
