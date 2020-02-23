@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+    app: 
+        container_name: neo0910_app
+        restart: always
+        build: .
+        ports: 
+            - '3000:3000'
+        links:
+            - mongo
+        env_file: 
+            - .env
+        volumes: 
+            - ./:/usr/src/app
+    mongo:
+        container_name: neo0910_mongo
+        image: mongo
+        ports: 
+            - '27017:27017'

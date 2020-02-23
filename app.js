@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 const fs = require('fs');
 const path = require('path');
@@ -14,8 +14,8 @@ const filePath = './mock-data/ellen-ripley.jpg';
 
 const params = {
     Bucket: bucket,
-    Body : fs.createReadStream(filePath),
-    Key : `${Date.now()}_${path.basename(filePath)}`
+    Body: fs.createReadStream(filePath),
+    Key: `${Date.now()}_${path.basename(filePath)}`,
 };
 
 // s3.upload(params, (err, data) => {
